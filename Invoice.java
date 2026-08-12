@@ -17,7 +17,7 @@ public class Invoice
 
     }
 
-    Invoice(String partNumber, String Description, int quantity, double price) 
+    Invoice(String partNumber, String partDescription, int quantity, double price) 
     {
         this.partNumber = partNumber;
         this.partDescription = partDescription;

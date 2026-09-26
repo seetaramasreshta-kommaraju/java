@@ -2,6 +2,11 @@ class ReportThread extends Thread {
     public void run(){
         for(int i=1;i<=5;i++){
             System.out.println("Report generation: "+i+" by "+Thread.currentThread().getName());
+            try {
+                Thread.sleep(1000); 
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
         }
     }
 }
@@ -9,6 +14,11 @@ class TransactionThread implements Runnable{
     public void run(){
         for(int i=1;i<=5;i++){
             System.out.println("Transaction Processing: "+i+" by "+Thread.currentThread().getName());
+            try {
+                Thread.sleep(1000); 
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
         }
     }
 }
@@ -16,6 +26,11 @@ class LoggingThread extends Thread {
     public void run(){
         for(int i=1;i<=5;i++){
             System.out.println("Loggging Activity: "+i+" by "+Thread.currentThread().getName());
+            try {
+                Thread.sleep(1000); 
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
         }
     }
 }

@@ -1,7 +1,7 @@
 class BankAccount {
     int balance = 10000;
 
-    void withdraw(int amount) {
+    synchronized void withdraw(int amount) {
         if(balance >= amount) {
             System.out.println(Thread.currentThread().getName() + " Withdrawing " + amount);
             balance -= amount;
@@ -23,9 +23,7 @@ class Customer extends Thread {
     }
 
     public void run() {
-        synchronized(account) {
-            account.withdraw(amount);
-        }
+        account.withdraw(amount); 
     }
 }
 
@@ -33,7 +31,7 @@ public class SynchronizationTest {
     public static void main(String[] args) {
         BankAccount account = new BankAccount();
 
-        Customer t1 = new Customer(account, 2000);
+        Customer t1 = new Customer(account, 7000);
         Customer t2 = new Customer(account, 5000);
 
         t1.setName("Customer1");
